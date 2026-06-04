@@ -1,0 +1,5 @@
+numpy>=1.21
+matplotlib>=3.4
+
+# Optional: needed only to run the Jupyter notebook
+notebook>=6.4
