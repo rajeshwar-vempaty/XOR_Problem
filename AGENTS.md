@@ -19,3 +19,28 @@ trains the network, prints a results table, and writes two PNG plots to `assets/
   collects 0 tests and exits with code 5 — this is expected, not a failure.
 - The notebook (`XOR Problem using Backpropagation in Neural Network.ipynb`) is optional
   and only needs the `notebook`/`jupyter` packages (installed via `requirements.txt`).
+
+### PATH
+
+`pip install --user` installs CLI tools under `~/.local/bin`. Ensure that directory is on
+`PATH` before running `jupyter` or `jupyter-nbconvert`:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+### Optional notebook verification
+
+Headless E2E for the notebook (expect XOR-like outputs ~0 for (0,0)/(1,1), ~1 for (0,1)/(1,0)):
+
+```bash
+cd /workspace
+export PATH="$HOME/.local/bin:$PATH"
+jupyter nbconvert --to notebook --execute "XOR Problem using Backpropagation in Neural Network.ipynb" --output /tmp/xor-executed.ipynb
+```
+
+Interactive Jupyter UI listens on port **8888** by default:
+
+```bash
+jupyter notebook --no-browser --port=8888 --ip=127.0.0.1
+```
